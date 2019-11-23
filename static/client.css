@@ -123,6 +123,7 @@ main {
     width: 25%;
     height: 20em;
     display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .ticket-popular-box > img {
@@ -154,17 +155,36 @@ main {
     height: 100vh;
     visibility: hidden;
     transition: width 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: url('images/background.png');
+    background-size: contain;
 }
 
 .items {
     padding: 1em;
     cursor: pointer;
     display: block;
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
 }
 
 .items:hover {
-    background-color: grey;
+    background-color: rgb(55, 143, 245);
     color: white;
+}
+
+.button {
+    background-color: rgb(20, 126, 248);
+    border: 0;
+    color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.button:hover {
+    background-color: rgb(0, 99, 212);
+    cursor: pointer;
 }
 
 #searchField {
@@ -174,7 +194,18 @@ main {
 
 #searchIcon {
     font-size: x-large;
-    padding: 0.1em;
+}
+
+#submitSearch {
+    color: white;
+    background-color: rgb(20, 126, 248);
+    border: 0;
+    padding: 0.4em;
+}
+
+#submitSearch:hover {
+    background-color: rgb(0, 99, 212);
+    cursor: pointer;
 }
 
 #searchText {
@@ -182,8 +213,6 @@ main {
     padding: 0.15em;
     background-color: rgb(20, 126, 248);
     color: white;
-    margin-right: 0.1em;
-    border-radius: 0.2em;
 }
 
 
