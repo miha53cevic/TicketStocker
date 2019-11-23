@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    transition: margin-left .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    background-color: rgb(20, 126, 248);
+    position: fixed;
+    left: 0;
+    right: 0;
+    transition: margin-left .5s;
+}
+
+.title {
+    flex: 1;
+    align-self: center;
+    text-align: center;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.headerIcon {
+    padding: 1em;
+    align-self: center;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.headerIcon:hover {
+    background-color: rgb(5, 107, 224);
+    color: black;
+}
+
+.new {
+    flex: 1;
+    padding: 1em;
+    /*background-color: cadetblue;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.popular {
+    flex: 1;
+    padding: 1em;
+    /*background-color: darkgoldenrod;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 75%;
+}
+
+.sale {
+    flex: 1;
+    padding: 1em;
+    background-color: darkred;
+    width: 100%;
+}
+
+.footer {
+    flex: 1;
+    padding: 1em;
+    background-color: #1C1D25;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.ticket-info-box {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.322);
+    padding: 1em;
+}
+
+.ticket-info-box > img {
+    flex: 1;
+}
+
+.ticket-info-box > div {
+    flex: 1;
+    align-self: center;
+}
+
+.ticket-info-box > div > button {
+    width: 50%;
+}
+
+.ticket-popular-box {
+    width: 25%;
+    height: 20em;
+    display: block;
+}
+
+.ticket-popular-box > img {
+    border: 1px solid rgba(128, 128, 128, 0.322);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.ticket-popular-box > img:hover {
+    cursor: pointer;
+    filter: blur(2px);
+}
+
+.ticket-popular-box > p {
+    background-color: #1C1D25;
+    width: fit-content;
+    padding: 0.3em;
+    position: relative;
+    transform: translate(0em, -3em);
+    color: white;
+}
+
+.sidebar {
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    width: 0;
+    height: 100vh;
+    visibility: hidden;
+    transition: width 0.5s;
+}
+
+.items {
+    padding: 1em;
+    cursor: pointer;
+    display: block;
+}
+
+.items:hover {
+    background-color: grey;
+    color: white;
+}
+
+
+@media screen and (min-width: 640px) {}
