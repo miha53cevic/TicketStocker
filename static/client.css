@@ -47,6 +47,12 @@ main {
     color: black;
 }
 
+.search {
+    text-align: center;
+    font-size:0;
+    width: 100%;
+}
+
 .new {
     flex: 1;
     padding: 1em;
@@ -72,8 +78,9 @@ main {
 .sale {
     flex: 1;
     padding: 1em;
-    background-color: darkred;
+    /*background-color: darkred;*/
     width: 100%;
+    display: flex;
 }
 
 .footer {
@@ -93,10 +100,14 @@ main {
     text-align: center;
     border: 1px solid rgba(128, 128, 128, 0.322);
     padding: 1em;
+    height: 10em;
 }
 
 .ticket-info-box > img {
     flex: 1;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
 }
 
 .ticket-info-box > div {
@@ -123,7 +134,7 @@ main {
 
 .ticket-popular-box > img:hover {
     cursor: pointer;
-    filter: blur(2px);
+    opacity: 0.8;
 }
 
 .ticket-popular-box > p {
@@ -154,6 +165,25 @@ main {
 .items:hover {
     background-color: grey;
     color: white;
+}
+
+#searchField {
+    font-size: x-large;
+    width: 40%;
+}
+
+#searchIcon {
+    font-size: x-large;
+    padding: 0.1em;
+}
+
+#searchText {
+    font-size: x-large;
+    padding: 0.15em;
+    background-color: rgb(20, 126, 248);
+    color: white;
+    margin-right: 0.1em;
+    border-radius: 0.2em;
 }
 
 
