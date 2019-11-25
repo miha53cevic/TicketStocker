@@ -14,6 +14,11 @@ main {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .header {
     flex: 1;
     display: flex;
@@ -194,6 +199,38 @@ main {
     color: white;
     font-size: large;
     width: fit-content;
+}
+
+.icon {
+    padding: 1em;
+    font-size: xx-large;
+}
+
+.h1Header {
+    padding: 0.5em;
+}
+
+.pHeader {
+    padding: 0.5em;
+    font-size: large;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0.322);
+    border-radius: 0.5rem;
+    padding: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+.searchField {
+    border: 1px solid grey;
+    border-radius: 0.2rem;
+    font-size: x-large;
+    padding: 0.5rem;
 }
 
 #searchField {
