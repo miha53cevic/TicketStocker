@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="main.css">
+    <title>TicketStocker Admin</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="headerIcon" style="visibility: hidden;">Sign out</div>
+        <h1 class="title"> TicketStocker Admin Pannel </h1>
+        <div class="headerIcon">
+            <a href="#signout">Sign out</a>
+        </div>
+    </header>
+
+    <br><br><br><br><br><br>
+
+    <main>
+
+        <div class="row">
+            <div class="flex-content">
+                <div class="flex-smallerContent">
+                    <h1 class="h1Header">Change ticket</h1>
+                    <p class="pHeader">Name</p>
+                    <input class="field" type="text"><br><br>
+                    <p class="pHeader">Date</p>
+                    <input class="field" type="date"><br><br>
+                    <p class="pHeader">Price</p>
+                    <div class="row">
+                        <input class="field" style="flex: 1;" type="number">
+                        <select style="font-size: large;">
+                            <option value="kn">kn</option>
+                            <option value="$">$</option>
+                            <option value="€">€</option>
+                        </select>
+                    </div><br><br>
+                    <button class="button">Add ticket</button>
+                </div><br><br>
+            </div> <!-- Add ticket -->
+
+            <div class="flex-content">
+                <div class="flex-smallerContent">
+                    <h1 class="h1Header">Change ticket</h1>
+                    <p class="pHeader">Pick</p>
+                    <select class="field">
+                        <option value="ticket1">Ticket1</option>
+                        <option value="ticket2">Ticket2</option>
+                    </select><br><br>
+                    <p class="pHeader">Date</p>
+                    <input class="field" type="date"><br><br>
+                    <p class="pHeader">Price</p>
+                    <div class="row">
+                        <input class="field" style="flex: 1;" type="number">
+                        <select style="font-size: large;">
+                            <option value="kn">kn</option>
+                            <option value="$">$</option>
+                            <option value="€">€</option>
+                        </select>
+                    </div><br><br>
+                    <button class="button">Change ticket</button>
+                </div><br><br>
+            </div> <!-- Change ticket -->
+
+        </div> <!-- Row -->
+
+    </main>
+
+</body>
+
+</html>

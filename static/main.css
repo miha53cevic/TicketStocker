@@ -233,6 +233,40 @@ a {
     padding: 0.5rem;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1rem;
+}
+
+.flex-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgba(128, 128, 128, 0.473);
+    align-items: center;
+}
+
+.flex-smallerContent {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.select-field {
+    width: 20rem;
+    padding: 0.5rem;
+    font-size: x-large;
+}
+
+.field {
+    padding: 1rem;
+    font-size: large;
+}
+
 #searchField {
     font-size: x-large;
     width: 40%;
