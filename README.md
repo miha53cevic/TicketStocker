@@ -1,5 +1,6 @@
 # TicketStocker
 
-## Static 
-- Client: https://miha53cevic.github.io/TicketStocker/static/client.html
+## Static
+- Client v1: https://miha53cevic.github.io/TicketStocker/static/client.html
+- Client v2: https://miha53cevic.github.io/TicketStocker/static2/client2.html
 - Admin: https://miha53cevic.github.io/TicketStocker/static/admin.html
