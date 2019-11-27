@@ -76,7 +76,6 @@ html {
     color: white;
     padding: 1rem;
     border-radius: 0.5em;
-    align-self: center;
 }
 
 .button:hover {
@@ -123,8 +122,8 @@ html {
     width: fit-content;
     height: fit-content;
     padding: 0.3em;
-    position: relative;
-    transform: translate(-15rem, 12rem);
+    position: absolute;
+    transform: translate(-9.5rem, 8.5rem);
     color: white;
 }
 
@@ -139,6 +138,27 @@ html {
     right: 2rem;
     bottom: 2rem;
     z-index: 2;
+}
+
+.pHeader {
+    padding: 0.5em;
+    font-size: large;
+    margin: 0;
+}
+
+.text-field {
+    border: 1px solid grey;
+    border-radius: 0.2rem;
+    font-size: x-large;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.icon {
+    padding: 1em;
+    font-size: xx-large;
+    text-decoration: none;
+    color: black;
 }
 
 /*----------------------------------------------------*/
@@ -176,7 +196,6 @@ html {
 .container {
     display: flex;
     flex-direction: column;
-    width: 80%;
     margin: 1rem;
     background-color: #80808080;
 }
@@ -186,9 +205,24 @@ html {
     text-align: center;
 }
 
+.login-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
 .row {
     display: flex;
     flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-item {
@@ -197,6 +231,10 @@ html {
 
 .align-self-center {
     align-self: center;
+}
+
+.align-items-center {
+    align-items: center;
 }
 
 .justify-content-center {
@@ -217,7 +255,6 @@ html {
 
 .border {
     border: 1px solid rgba(128, 128, 128, 0.322);
-    padding: 1em;
 }
 
 /*----------------------------------------------------*/
