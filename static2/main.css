@@ -229,6 +229,8 @@ html {
     flex: 1;
 }
 
+/*----------------------------------------------------*/
+
 .align-self-center {
     align-self: center;
 }
@@ -240,6 +242,8 @@ html {
 .justify-content-center {
     justify-content: center;
 }
+
+/*----------------------------------------------------*/
 
 .flexible-image-small {
     width: 25%;
@@ -255,6 +259,60 @@ html {
 
 .border {
     border: 1px solid rgba(128, 128, 128, 0.322);
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+/*----------------------------------------------------*/
+
+.w100 {
+    width: 100%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w25 {
+    width: 25%;
+}
+
+.wAuto {
+    width: auto;
+}
+
+.wFit {
+    width: fit-content;
+}
+
+/*----------------------------------------------------*/
+
+.textLeft {
+    text-align: left;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.textRight {
+    text-align: right;
+}
+
+/*----------------------------------------------------*/
+
+.paddingS {
+    padding: 1rem;
+}
+
+.paddingM {
+    padding: 3rem;
+}
+
+.paddingL {
+    padding: 5rem;
 }
 
 /*----------------------------------------------------*/
