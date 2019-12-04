@@ -24,12 +24,12 @@ html {
 /*----------------------------------------------------*/
 
 .header {
-    flex: 1;
     display: flex;
     flex-direction: row;
     width: 100%;
     text-align: center;
-    background-color: rgb(20, 126, 248);
+    /*background-color: rgb(20, 126, 248);*/
+    background-color: transparent;
     padding: 0 2rem 0 2rem;
 }
 
@@ -40,7 +40,7 @@ html {
 }
 
 .header-word {
-    color: black;
+    color: rgb(5, 107, 224);
 }
 
 .header-item {
@@ -52,9 +52,14 @@ html {
 }
 
 .header-item:hover {
-    background-color: rgb(5, 107, 224);
+    background-color: white;
     color: black;
     cursor: pointer;
+}
+
+.header-search-background {
+    background-image: url("images/crowd.jpg");
+    background-size: cover;
 }
 
 /*----------------------------------------------------*/
@@ -102,10 +107,10 @@ html {
 }
 
 .hHeader {
-    color: white;
-    background-color: #1C1D25;
+    color: black;
+    font-weight: bold;
     padding: 1rem;
-    width: 50%;
+    width: fit-content;
 }
 
 .discountIcon {
@@ -123,7 +128,9 @@ html {
     height: fit-content;
     padding: 0.3em;
     position: absolute;
-    transform: translate(-9.5rem, 8.5rem);
+    left: 0;
+    bottom: 0;
+    margin: 0;
     color: white;
 }
 
@@ -257,12 +264,28 @@ html {
     margin: 1rem;
 }
 
+.margin0 {
+    margin: 0;
+}
+
 .border {
     border: 1px solid rgba(128, 128, 128, 0.322);
 }
 
+.border-radius {
+    border-radius: 1rem;
+}
+
 .transparent {
     background-color: transparent;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.relative {
+    position: relative;
 }
 
 /*----------------------------------------------------*/
@@ -285,6 +308,16 @@ html {
 
 .wFit {
     width: fit-content;
+}
+
+/*----------------------------------------------------*/
+
+.w100vw {
+    width: 100vw;
+}
+
+.h100vh {
+    height: 100vh;
 }
 
 /*----------------------------------------------------*/
