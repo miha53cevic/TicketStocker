@@ -5,11 +5,17 @@
 
 body {
     margin: 0;
+    background-color: black;
 }
 
 /* Adds nice scrolling transitions when going to ancors #top etc. */
 html {
     scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*----------------------------------------------------*/
@@ -37,10 +43,8 @@ html {
     color: white;
     flex: 1;
     text-align: left;
-}
-
-.header-word {
-    color: rgb(5, 107, 224);
+    font-family: "Allerta Stencil";
+    font-weight: normal;
 }
 
 .header-item {
@@ -57,7 +61,7 @@ html {
     cursor: pointer;
 }
 
-.header-search-background {
+.header-background {
     background-image: url("images/crowd.jpg");
     background-size: cover;
 }
@@ -67,24 +71,27 @@ html {
 .footer {
     flex: 1;
     padding: 1em;
-    background-color: #1C1D25;
+    background-color: black;
     color: white;
     text-align: center;
     width: 100%;
+    border-top: 1px solid white;
 }
 
 /*----------------------------------------------------*/
 
 .button {
-    background-color: rgb(20, 126, 248);
+    background-color: black;
     border: 0;
     color: white;
     padding: 1rem;
     border-radius: 0.5em;
+    border: 1px solid white;
+    text-decoration: none;
 }
 
 .button:hover {
-    background-color: rgb(0, 99, 212);
+    background-color: #404040;
     cursor: pointer;
 }
 
@@ -107,20 +114,26 @@ html {
 }
 
 .hHeader {
-    color: black;
+    color: white;
     font-weight: bold;
     padding: 1rem;
     width: fit-content;
 }
 
 .discountIcon {
+    position: absolute;
     background-color: red;
     padding: 0.5em;
     border-radius: 1em;
     color: white;
-    font-size: large;
+    font-size: x-large;
     width: fit-content;
+    top: -1.8rem;
+    right: -1.5rem;
+    transform: rotateZ(20deg);
 }
+
+/*----------------------------------------------------*/
 
 .popularP {
     background-color: #1C1D25;
@@ -133,6 +146,50 @@ html {
     margin: 0;
     color: white;
 }
+
+.popular-image {
+    position: relative;
+    width: 360px;
+    height: 360px;
+}
+
+.popular-pannel {
+    position: relative;
+    margin: 1rem;
+}
+
+/*----------------------------------------------------*/
+
+.searching-pannel {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    width: 100%;
+    bottom: -185px;
+    visibility: hidden;
+}
+
+.searching-pannel>a {
+    text-decoration: none;
+}
+
+.searching-pannel>a:hover {
+    background-color: grey;
+}
+
+.search-result>img {
+    width: 75px;
+    height: 75px;
+}
+
+.search-result>p {
+    align-self: center;
+    color: black;
+    font-size: x-large;
+    margin: 0;
+}
+
+/*----------------------------------------------------*/
 
 .brighten:hover {
     opacity: 0.5;
@@ -151,6 +208,7 @@ html {
     padding: 0.5em;
     font-size: large;
     margin: 0;
+    color: white;
 }
 
 .text-field {
@@ -165,7 +223,7 @@ html {
     padding: 1em;
     font-size: xx-large;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 /*----------------------------------------------------*/
@@ -179,7 +237,7 @@ html {
     visibility: hidden;
     transition: width 0.5s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-image: url('images/background.png');
+    background-image: url('images/background-light-dark.png');
     background-size: contain;
     right: 0;
 }
@@ -194,8 +252,8 @@ html {
 }
 
 .items:hover {
-    background-color: rgb(55, 143, 245);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 /*----------------------------------------------------*/
@@ -204,13 +262,15 @@ html {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    background-color: #80808080;
+    background-color: #1C1D25;
 }
 
 .content {
     padding: 1rem;
     text-align: center;
 }
+
+/*----------------------------------------------------*/
 
 .login-box {
     flex: 1;
@@ -220,7 +280,56 @@ html {
     padding: 3rem;
     padding-top: 0.5rem;
     padding-bottom: 2rem;
+    border: 1px solid white;
 }
+
+.login-box>p {
+    color: white;
+}
+
+/*----------------------------------------------------*/
+
+.ticket-pannel {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1px solid white;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.ticket-text {
+    flex: 2;
+    flex-direction: column;
+    border-right: 0.5rem dotted white;
+    height: 100%;
+}
+
+.ticket-button-area {
+    flex: 1;
+    align-self: center;
+}
+
+.ticket-p {
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    margin: 0;
+    width: fit-content;
+    align-self: left;
+    padding: 0.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.ticket-image {
+    margin-left: 1rem;
+    width: fit-content;
+}
+
+/*----------------------------------------------------*/
 
 .row {
     display: flex;
@@ -234,6 +343,18 @@ html {
 
 .flex-item {
     flex: 1;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
 }
 
 /*----------------------------------------------------*/
@@ -252,14 +373,6 @@ html {
 
 /*----------------------------------------------------*/
 
-.flexible-image-small {
-    width: 25%;
-}
-
-.flexible-image-medium {
-    width: 50%;
-}
-
 .margin {
     margin: 1rem;
 }
@@ -268,12 +381,28 @@ html {
     margin: 0;
 }
 
+.marginBottom5 {
+    margin-bottom: 5rem;
+}
+
+.marginTop5 {
+    margin-bottom: 5rem;
+}
+
 .border {
     border: 1px solid rgba(128, 128, 128, 0.322);
 }
 
+.border0 {
+    border: 0;
+}
+
 .border-radius {
     border-radius: 1rem;
+}
+
+.border-radius0 {
+    border-radius: 0;
 }
 
 .transparent {
@@ -286,6 +415,14 @@ html {
 
 .relative {
     position: relative;
+}
+
+.bg-main-colour {
+    background-color: black;
+}
+
+.bg-sec-colour {
+    background-color: #1C1D25;
 }
 
 /*----------------------------------------------------*/

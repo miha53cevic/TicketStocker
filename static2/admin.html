@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="main.css">
     <title> TicketStockerAdmin </title>
@@ -18,17 +19,18 @@
     <main class="main">
         <a name="top"></a>
 
-        <header class="header" style="background-color: rgb(20, 126, 248);">
-            <h1 class="header-title"><span class="header-word" style="color: black;">Ticket</span>Stocker - Admin</h1>
+        <header class="header bg-sec-colour">
+            <h1 class="header-title">TicketStocker - Admin</h1>
             <a class="header-item" href="login.html">Logout</a>
         </header>
 
         <br><br><br><br><br>
 
         <div class="row">
-            <div class="container transparent border">
+
+            <div class="container bg-sec-colour" style="color: white;">
                 <div class="content paddingL">
-                    <h1>Add ticket</h1>
+                    <h1 style="color: white;">Add ticket</h1>
                     <p class="pHeader">Name</p>
                     <input class="text-field" type="text"><br><br>
                     <p class="pHeader">Date</p>
@@ -41,14 +43,20 @@
                             <option value="$">$</option>
                             <option value="€">€</option>
                         </select>
-                    </div>
-                    <br><br>
+                    </div><br><br>
+                    <p class="pHeader">Number of tickets</p>
+                    <input class="text-field w50" type="text"><br><br>
+                    <p class="pHeader">Images</p>
+                    <input type="file" accept="image/*" style="margin-bottom: 1rem;"><br>
+                    <input type="file" accept="image/*">
+                    <br><br><br>
                     <button class="button w100">Add ticket</button>
                 </div>
             </div>
-            <div class="container transparent border">
-                <div class="content paddingL">
-                    <h1>Change ticket</h1>
+
+            <div class="container bg-sec-colour">
+                <div class="content paddingL textCenter">
+                    <h1 style="color: white;">Change ticket</h1>
                     <p class="pHeader">Pick</p>
                     <select class="text-field">
                         <option value="ticket1">Ticket1</option>
@@ -65,6 +73,8 @@
                             <option value="€">€</option>
                         </select>
                     </div><br><br>
+                    <p class="pHeader">Number of tickets</p>
+                    <input class="text-field w50" type="text"><br><br><br>
                     <button class="button w100">Change ticket</button>
                 </div>
             </div>

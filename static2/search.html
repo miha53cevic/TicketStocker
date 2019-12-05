@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="main.css">
+    <title> TicketStocker </title>
+</head>
+
+<body>
+
+    <a href="#top" class="fa fa-arrow-up fa-lg top-icon button"></a>
+
+    <main class="main">
+        <a name="top"></a>
+
+        <header class="header bg-sec-colour">
+            <h1 class="header-title">TicketStocker</h1>
+
+            <div class="col justify-content-center relative">
+                <input class="search-field" type="search" placeholder="Search">
+                <div class="searching-pannel col shadow">
+                    <a href="#infoIDStarWarsIII">
+                        <div class="search-result row">
+                            <img src="images/star_wars3.jpg">
+                            <p>Star Wars III</p>
+                        </div>
+                    </a>
+                    <a href="#infoIDStarWarsIX">
+                        <div class="search-result row">
+                            <img src="images/star_wars.jpg">
+                            <p>Star Wars IX</p>
+                        </div>
+                    </a>
+                    <a href="search.html" class="button border0 border-radius0">More</a>
+                </div>
+            </div>
+
+            <button class="button search-button align-self-center" id="searchButton"><i
+                    class="fa fa-search"></i></button>
+            <a class="header-item" href="login.html">Login</a>
+            <a class="header-item" href="signup.html">SignUp</a>
+        </header>
+
+        <div class="container transparent">
+
+            <div class="container w100">
+                <div class="content">
+                    <h1 class="hHeader textLeft"> Search results </h1>
+
+                    <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                        <div class="ticket-text">
+                            <p class="ticket-p">Cinestar Star Wars IX</p>
+                            <p class="ticket-p">26.12.2019.</p>
+                        </div>
+                        <div class="ticket-button-area">
+                            <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                        </div>
+                    </div>
+                    <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
+                        <div class="ticket-text">
+                            <p class="ticket-p">Cinestar Star Wars III</p>
+                            <p class="ticket-p">26.5.2001.</p>
+                        </div>
+                        <div class="ticket-button-area">
+                            <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
+                        </div>
+                    </div>
+                    <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                        <div class="ticket-text">
+                            <p class="ticket-p">Cinestar Star Wars IX</p>
+                            <p class="ticket-p">26.12.2019.</p>
+                        </div>
+                        <div class="ticket-button-area">
+                            <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                        </div>
+                    </div>
+
+                </div> <!-- Content -->
+            </div> <!-- New container -->
+
+        </div> <!-- Main Page Content Container -->
+
+        <footer class="footer">
+            <h1>Contact</h1>
+            <p>e-mail: miha53cevic</p>
+            <p>tel: 123 456 789</p>
+        </footer>
+
+    </main>
+
+</body>
+
+<script>
+    const search = document.getElementsByClassName('search-field')[0];
+    const searchButton = document.getElementById('searchButton');
+
+    search.addEventListener('search', () => {
+        document.getElementsByClassName('searching-pannel')[0].style.visibility = 'visible';
+    });
+
+    searchButton.addEventListener('click', () => {
+        document.getElementsByClassName('searching-pannel')[0].style.visibility = 'visible';
+    });
+</script>
+
+</html>
