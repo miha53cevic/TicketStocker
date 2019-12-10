@@ -20,7 +20,7 @@
         <a name="top"></a>
 
         <header class="header bg-sec-colour">
-            <h1 class="header-title">TicketStocker - Admin</h1>
+            <h1 class="header-title"> <a href="client.html" class="header-title">TicketStocker - Admin</a> </h1>
             <a class="header-item" href="login.html">Logout</a>
         </header>
 
@@ -46,15 +46,25 @@
                     </div><br><br>
                     <p class="pHeader">Number of tickets</p>
                     <input class="text-field w50" type="text"><br><br>
-                    <p class="pHeader">Images</p>
-                    <input type="file" accept="image/*" style="margin-bottom: 1rem;"><br>
-                    <input type="file" accept="image/*">
+                    <p class="pHeader">Image</p>
+                    <input type="file" accept="image/*"><br><br>
+                    <p class="pHeader">Times</p>
+                    <div class="row justify-content-center">
+                        <input type="time">
+                        <input type="time">
+                        <input type="time">
+                    </div><br><br>
+                    <p class="pHeader">Number of seats</p>
+                    <p class="pText">Rows</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <p class="pText">Columns</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
                     <br><br><br>
                     <button class="button w100">Add ticket</button>
                 </div>
             </div>
 
-            <div class="container bg-sec-colour">
+            <div class="container bg-sec-colour" style="color: white;">
                 <div class="content paddingL textCenter">
                     <h1 style="color: white;">Change ticket</h1>
                     <p class="pHeader">Pick</p>
@@ -74,7 +84,21 @@
                         </select>
                     </div><br><br>
                     <p class="pHeader">Number of tickets</p>
-                    <input class="text-field w50" type="text"><br><br><br>
+                    <input class="text-field w50" type="text"><br><br>
+                    <p class="pHeader">Image</p>
+                    <input type="file" accept="image/*"><br><br>
+                    <p class="pHeader">Times</p>
+                    <div class="row justify-content-center">
+                        <input type="time">
+                        <input type="time">
+                        <input type="time">
+                    </div><br><br>
+                    <p class="pHeader">Number of seats</p>
+                    <p class="pText">Rows</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <p class="pText">Columns</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <br><br><br>
                     <button class="button w100">Change ticket</button>
                 </div>
             </div>

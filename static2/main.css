@@ -18,6 +18,13 @@ img {
     max-height: 100%;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.308);
+    width: 100%;
+}
+
 /*----------------------------------------------------*/
 
 .main {
@@ -45,6 +52,7 @@ img {
     text-align: left;
     font-family: "Allerta Stencil";
     font-weight: normal;
+    text-decoration: none;
 }
 
 .header-item {
@@ -209,6 +217,18 @@ img {
     font-size: large;
     margin: 0;
     color: white;
+}
+
+.pText {
+    padding: 0.5em;
+    font-size: medium;
+    margin: 0;
+    color: white;
+}
+
+.pHover:hover {
+    cursor: pointer;
+    color: grey;
 }
 
 .text-field {
@@ -389,6 +409,14 @@ img {
     margin-bottom: 5rem;
 }
 
+.marginRight5 {
+    margin-right: 5rem;
+}
+
+.marginLeft5 {
+    margin-left: 5rem;
+}
+
 .border {
     border: 1px solid rgba(128, 128, 128, 0.322);
 }
@@ -411,6 +439,10 @@ img {
 
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text-outline {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .relative {
@@ -483,6 +515,10 @@ img {
 
 .paddingL {
     padding: 5rem;
+}
+
+.padding0 {
+    padding: 0;
 }
 
 /*----------------------------------------------------*/
