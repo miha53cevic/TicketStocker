@@ -5,74 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="main.css">
-    <title>TicketStocker Admin</title>
+    <title> TicketStockerAdmin </title>
 </head>
 
 <body>
 
-    <header class="header">
-        <div class="headerIcon" style="visibility: hidden;">Sign out</div>
-        <h1 class="title"> TicketStocker Admin Pannel </h1>
-        <div class="headerIcon">
-            <a href="#signout">Sign out</a>
-        </div>
-    </header>
+    <a href="#top" class="fa fa-arrow-up fa-lg top-icon button"></a>
 
-    <br><br><br><br><br><br>
+    <main class="main">
+        <a name="top"></a>
 
-    <main>
+        <header class="header bg-sec-colour">
+            <h1 class="header-title"> <a href="client.html" class="header-title">TicketStocker - Admin</a> </h1>
+            <a class="header-item" href="login.html">Logout</a>
+        </header>
+
+        <br><br><br><br><br>
 
         <div class="row">
-            <div class="flex-content">
-                <div class="flex-smallerContent">
-                    <h1 class="h1Header">Add ticket</h1>
+
+            <div class="container bg-sec-colour" style="color: white;">
+                <div class="content paddingL">
+                    <h1 style="color: white;">Add ticket</h1>
                     <p class="pHeader">Name</p>
-                    <input class="field" type="text"><br><br>
+                    <input class="text-field" type="text"><br><br>
                     <p class="pHeader">Date</p>
-                    <input class="field" type="date"><br><br>
+                    <input class="text-field" type="date"><br><br>
                     <p class="pHeader">Price</p>
-                    <div class="row">
-                        <input class="field" style="flex: 1;" type="number">
-                        <select style="font-size: large;">
+                    <div class="row justify-content-center">
+                        <input class="text-field w50" type="number">
+                        <select class="text-field wFit">
                             <option value="kn">kn</option>
                             <option value="$">$</option>
                             <option value="€">€</option>
                         </select>
                     </div><br><br>
-                    <button class="button">Add ticket</button>
-                </div><br><br>
-            </div> <!-- Add ticket -->
+                    <p class="pHeader">Number of tickets</p>
+                    <input class="text-field w50" type="text"><br><br>
+                    <p class="pHeader">Image</p>
+                    <input type="file" accept="image/*"><br><br>
+                    <p class="pHeader">Times</p>
+                    <div class="row justify-content-center">
+                        <input type="time">
+                        <input type="time">
+                        <input type="time">
+                    </div><br><br>
+                    <p class="pHeader">Number of seats</p>
+                    <p class="pText">Rows</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <p class="pText">Columns</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <br><br><br>
+                    <button class="button w100">Add ticket</button>
+                </div>
+            </div>
 
-            <div class="flex-content">
-                <div class="flex-smallerContent">
-                    <h1 class="h1Header">Change ticket</h1>
+            <div class="container bg-sec-colour" style="color: white;">
+                <div class="content paddingL textCenter">
+                    <h1 style="color: white;">Change ticket</h1>
                     <p class="pHeader">Pick</p>
-                    <select class="field">
+                    <select class="text-field">
                         <option value="ticket1">Ticket1</option>
                         <option value="ticket2">Ticket2</option>
                     </select><br><br>
                     <p class="pHeader">Date</p>
-                    <input class="field" type="date"><br><br>
+                    <input class="text-field" type="date"><br><br>
                     <p class="pHeader">Price</p>
-                    <div class="row">
-                        <input class="field" style="flex: 1;" type="number">
-                        <select style="font-size: large;">
+                    <div class="row justify-content-center">
+                        <input class="text-field w50" type="number">
+                        <select class="text-field wFit">
                             <option value="kn">kn</option>
                             <option value="$">$</option>
                             <option value="€">€</option>
                         </select>
                     </div><br><br>
-                    <button class="button">Change ticket</button>
-                </div><br><br>
-            </div> <!-- Change ticket -->
+                    <p class="pHeader">Number of tickets</p>
+                    <input class="text-field w50" type="text"><br><br>
+                    <p class="pHeader">Image</p>
+                    <input type="file" accept="image/*"><br><br>
+                    <p class="pHeader">Times</p>
+                    <div class="row justify-content-center">
+                        <input type="time">
+                        <input type="time">
+                        <input type="time">
+                    </div><br><br>
+                    <p class="pHeader">Number of seats</p>
+                    <p class="pText">Rows</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <p class="pText">Columns</p>
+                    <input type="number" class="text-field" style="width: 4rem;">
+                    <br><br><br>
+                    <button class="button w100">Change ticket</button>
+                </div>
+            </div>
+        </div>
 
-        </div> <!-- Row -->
+        <br><br><br><br><br>
+
+        <footer class="footer">
+            <h1>Contact</h1>
+            <p>e-mail: miha53cevic</p>
+            <p>tel: 123 456 789</p>
+        </footer>
 
     </main>
-
-</body>
 
 </html>

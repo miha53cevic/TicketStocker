@@ -5,180 +5,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="main.css">
-    <title>TicketStocker</title>
+    <title> TicketStocker </title>
 </head>
 
 <body>
 
     <div class="sidebar">
-        <a class="items" href="#search"> Search </a>
         <a class="items" href="#new"> New </a>
         <a class="items" href="#popular"> Popular </a>
         <a class="items" href="#sale"> Sale </a>
         <a class="items" href="#contact"> Contact </a>
     </div>
 
-    <main>
+    <a href="#top" class="fa fa-arrow-up fa-lg top-icon button"></a>
 
-        <header class="header">
-            <div id="navButton" class="headerIcon">
-                <i class="fa fa-bars"></i>
-            </div>
-            <div class="headerIcon" style="visibility: hidden;">LoginSignu</div>
-            <h1 class="title"> TicketStocker </h1>
-            <div class="headerIcon">
-                <!-- <i class="fa fa-shopping-cart"></i> -->
-                <a href="login.html">Login</a>
-            </div>
-            <div class="headerIcon">
-                <!-- <i class="fa fa-user-circle"></i> -->
-                <a href="signup.html">SignUp</a>
-            </div>
-        </header>
+    <main class="main">
+        <a name="top"></a>
 
-        <a name="search"></a>
-        <br><br><br><br><br><br><br><br>
+        <div class="container margin0 w100 h100vh header-background shadow">
+            <header class="header">
+                <h1 class="header-title"> <a href="client.html" class="header-title">TicketStocker</a> </h1>
 
-        <div class="search">
-            <span id="searchText">Search</span>
-            <input type="search" id="searchField">
-            <button type="submit" id="submitSearch"><i class="fa fa-search" id="searchIcon"></i></button>
-        </div>
+                <div class="col justify-content-center relative">
+                    <input class="search-field" type="search" placeholder="Search">
+                    <div class="searching-pannel col shadow">
+                        <a href="ticket-info.html">
+                            <div class="search-result row">
+                                <img src="images/star_wars3.jpg">
+                                <p>Star Wars III</p>
+                            </div>
+                        </a>
+                        <a href="#infoIDStarWarsIX">
+                            <div class="search-result row">
+                                <img src="images/star_wars.jpg">
+                                <p>Star Wars IX</p>
+                            </div>
+                        </a>
+                        <a href="search.html" class="button border0 border-radius0">More</a>
+                    </div>
+                </div>
 
-        <a name="new"></a>
-        <br><br><br><br>
+                <button class="button search-button align-self-center" id="searchButton"><i
+                        class="fa fa-search"></i></button>
+                <a class="header-item" href="login.html">Login</a>
+                <a class="header-item" href="signup.html">SignUp</a>
+                <i class="fa fa-bars fa-lg header-item" id="navButton"></i>
+            </header>
+        </div> <!-- Header and Search Container -->
 
-        <h1 class="h1Header">Newly added</h1>
-        <article class="new">
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
+        <div class="container transparent">
 
-        </article>
+            <a name="new"></a>
+            <br><br><br>
 
-        <a name="popular"></a>
-        <br><br><br><br><br><br><br><br>
+            <div class="container">
+                <div class="content">
+                    <h1 class="hHeader textLeft"> Newly added </h1>
+                    <div class="row">
 
-        <h1 class="h1Header">Popular</h1>
-        <article class="popular">
-            <div class="ticket-popular-box">
-                <img alt="image" src="images/placeHolder.jpg">
-                <p>Name</p>
-            </div>
-            <div class="ticket-popular-box">
-                <img alt="image" src="images/placeHolder.jpg">
-                <p>Name</p>
-            </div>
-            <div class="ticket-popular-box">
-                <img alt="image" src="images/placeHolder.jpg">
-                <p>Name</p>
-            </div>
-        </article>
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars IX</p>
+                                <p class="ticket-p">26.12.2019.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars III</p>
+                                <p class="ticket-p">26.5.2001.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
 
-        <a name="sale"></a>
-        <br><br><br><br><br><br><br><br>
+                    </div> <!-- Row -->
 
-        <h1 class="h1Header">On sale</h1>
-        <article class="sale">
+                    <div class="row">
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars IX</p>
+                                <p class="ticket-p">26.12.2019.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars III</p>
+                                <p class="ticket-p">26.5.2001.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
 
-            <div class="ticket-info-box">
-                <img alt="image" src="images/placeHolder.jpg">
-                <div>
-                    <i class="fa fa-tag fa-lg discountIcon"> 30% </i>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <i class="fa fa-tag fa-lg discountIcon"> 30% </i>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
-            <div class="ticket-info-box">
-                <img alt="image">
-                <div>
-                    <i class="fa fa-tag fa-lg discountIcon"> 30% </i>
-                    <p>Name</p>
-                    <p>Date</p>
-                </div>
-                <div>
-                    <button class="button" type="button">More Info</button>
-                </div>
-            </div>
+                    <div class="row">
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars IX</p>
+                                <p class="ticket-p">26.12.2019.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars III</p>
+                                <p class="ticket-p">26.5.2001.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
 
-        </article>
+                </div> <!-- Content -->
+            </div> <!-- New container -->
+
+            <a name="popular"></a>
+            <br><br><br><br><br><br><br><br><br><br>
+
+            <div class="container">
+                <div class="content">
+                    <h1 class="hHeader textLeft"> Popular </h1>
+                    <div class="row">
+
+                        <div class="popular-pannel brighten">
+                            <a href="#infoIDparty2019"><img class="popular-image" alt="image"
+                                    src="images/crowd.jpg"></a>
+                            <p class="popularP">Party 2019</p>
+                        </div>
+                        <div class="popular-pannel brighten">
+                            <a href="#infoIDStarWarsXI"><img class="popular-image" alt="image"
+                                    src="images/star_wars.jpg"></a>
+                            <p class="popularP">Star Wars The Last Jedi</p>
+                        </div>
+                        <div class="popular-pannel brighten">
+                            <a href="#infoIDStarWarsIII"><img class="popular-image" alt="image"
+                                    src="images/star_wars3.jpg"></a>
+                            <p class="popularP">Star Wars III</p>
+                        </div>
+
+                    </div> <!-- Row -->
+                </div> <!-- Content -->
+            </div> <!-- Popular container -->
+
+            <a name="sale"></a>
+            <br><br><br><br><br><br><br><br><br><br>
+
+            <div class="container">
+                <div class="content">
+                    <h1 class="hHeader textLeft"> On sale </h1>
+                    <div class="row">
+
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
+                            <i class="fa fa-tag discountIcon">30%</i>
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars IX</p>
+                                <p class="ticket-p">26.12.2019.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+
+                        <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
+                            <i class="fa fa-tag discountIcon">50%</i>
+                            <div class="ticket-text">
+                                <p class="ticket-p">Cinestar Star Wars III</p>
+                                <p class="ticket-p">26.5.2001.</p>
+                            </div>
+                            <div class="ticket-button-area">
+                                <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
+                            </div>
+                        </div>
+
+                    </div> <!-- Row -->
+
+                </div> <!-- Content -->
+            </div> <!-- On sale container -->
+
+        </div> <!-- Main Page Content Container -->
 
         <a name="contact"></a>
-        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
 
         <footer class="footer">
             <h1>Contact</h1>
@@ -201,15 +222,24 @@
             sidebarOpen = false;
             sidebar.style.width = '0';
             sidebar.style.visibility = 'hidden';
-            document.getElementsByTagName('main')[0].style.marginLeft = "0";
-            document.getElementsByClassName('header')[0].style.marginLeft = "0";
+            document.getElementsByClassName('main')[0].style.marginRight = "0";
         } else {
             sidebarOpen = true;
-            sidebar.style.width = '400px';
+            sidebar.style.width = '300px';
             sidebar.style.visibility = 'visible';
-            document.getElementsByTagName('main')[0].style.marginLeft = "400px";
-            document.getElementsByClassName('header')[0].style.marginLeft = "400px";
+            document.getElementsByClassName('main')[0].style.marginRight = "300px";
         }
+    });
+
+    const search = document.getElementsByClassName('search-field')[0];
+    const searchButton = document.getElementById('searchButton');
+
+    search.addEventListener('search', () => {
+        document.getElementsByClassName('searching-pannel')[0].style.visibility = 'visible';
+    });
+
+    searchButton.addEventListener('click', () => {
+        document.getElementsByClassName('searching-pannel')[0].style.visibility = 'visible';
     });
 </script>
 
