@@ -173,8 +173,8 @@ hr {
     background-color: white;
     border: 1px solid black;
     width: 100%;
-    bottom: -185px;
-    visibility: hidden;
+    bottom: -16rem;
+    /*visibility: hidden;*/
 }
 
 .searching-pannel>a {

@@ -30,6 +30,7 @@
             $ticket_time3 = $handler->data[0]['time3'];
             $ticket_row = $handler->data[0]['row'];
             $ticket_col = $handler->data[0]['col'];
+
         } else {
             $exists = false;
         }
@@ -69,7 +70,7 @@
             <div class="container bg-sec-colour" style="color: white;">
                 <div class="content paddingL">
 
-                    <form action='server_requests/add_ticket.php' method='GET'>
+                    <form action='server_requests/add_ticket.php' method='POST' enctype='multipart/form-data'>
                         <h1 style="color: white;">Add ticket</h1>
                         <p class="pHeader">Name</p>
                         <input class="text-field" type="text" name='ticket_name'><br><br>
@@ -80,8 +81,8 @@
                         <br><br>
                         <p class="pHeader">Number of tickets</p>
                         <input class="text-field w50" type="text" name='ticket_num'><br><br>
-                        <p class="pHeader">Image</p>
-                        <input type="file" accept="image/*" name='ticket_img'><br><br>
+                        <p class="pHeader">Image (only jpeg)</p>
+                        <input type="file" accept="image/jpeg" name='ticket_img' id='ticket_img'><br><br>
                         <p class="pHeader">Times</p>
                         <div class="row justify-content-center">
                             <input type="time" name='ticket_time1'>
@@ -112,7 +113,7 @@
                     <?php
                         // Write: searched up ticket info or No ticket exists with that name
                         if (isset($exists) && $exists) {
-                            printf('<form action="server_requests/change_ticket.php" method="GET">');
+                            printf('<form action="server_requests/change_ticket.php" method="POST" enctype="multipart/form-data">');
                             printf('<p class="pHeader">Name</p>');
                             printf('<input class="text-field" type="text" name="ticket_name" value="%s"><br><br>', $name);
                             printf('<p class="pHeader">Date</p>');
@@ -123,7 +124,7 @@
                             printf('<p class="pHeader">Number of tickets</p>');
                             printf('<input class="text-field w50" type="text" name="ticket_num" value="%s"><br><br>', $ticket_num);
                             printf('<p class="pHeader">Image</p>');
-                            printf('<input type="file" accept="image/*" name="ticket_img"><br><br>');
+                            printf('<input type="file" accept="image/jpeg" name="ticket_img"><br><br>');
                             printf('<p class="pHeader">Times</p>');
                             printf('<div class="row justify-content-center">');
                             printf('<input type="time" name="ticket_time1" value="%s">', $ticket_time1);

@@ -1,11 +1,11 @@
 <?php
     $exists;
 
-    if (!empty($_GET)) {
-        $name = $_GET['username'];
+    if (!empty($_POST)) {
+        $name = $_POST['username'];
 
         // Hash the password
-        $pass = sha1($_GET['password']);
+        $pass = sha1($_POST['password']);
 
         require_once 'includes/SqlHandler.php';
         $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
@@ -51,7 +51,7 @@
         <a class="fa fa-ticket icon" href="index.php"></a>
         <p class="pHeader">Sign in to TicketStocker</p>
 
-        <form action='' method='GET'>
+        <form action='' method='POST'>
             <div class="login-box">
                 <p>Username or email address</p>
                 <input class="text-field" type="text" name='username'>
