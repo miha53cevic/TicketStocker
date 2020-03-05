@@ -22,7 +22,7 @@
 
             // Check if an admin has logged on
             if ($handler->data[0]['type'] == 'admin') {
-                header('Location: admin.php');
+                header('Location: admin/admin.php');
             }
 
         } else {

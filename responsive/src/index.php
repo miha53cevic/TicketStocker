@@ -67,9 +67,9 @@
                                         break;
                                     }
     
-                                    printf('<a href="ticket-info.php?id=%s">', $handler->data[$i]['id']);
+                                    printf('<a href="ticket/ticket_info.php?id=%s">', $handler->data[$i]['id']);
                                     print('<div class="search-result row">');
-                                    printf('<img src="images/%s.jpg">', $handler->data[$i]['id']);
+                                    printf('<img src="../images/%s.jpg">', $handler->data[$i]['id']);
                                     printf('<p>%s</p>', $handler->data[$i]['name']);
                                     print('</div>');
                                     print('</a>');
@@ -108,13 +108,13 @@
                         for ($i = 0; $i < 3; $i++) {
                             print('<div class="row">');
                             for ($j = 0; $j < 2; $j++) {
-                                printf('<div class="ticket-pannel" style="background-image: url(images/%s.jpg);">', $handler->data[$iterator]['id']);
+                                printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
                                 print('<div class="ticket-text">');
                                 printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);
                                 printf('<p class="ticket-p">%s</p>', date_format(date_create($handler->data[$iterator]['date']), 'd.m.Y'));
                                 print('</div>');
                                 print('<div class="ticket-button-area">');
-                                print('<form action="ticket_info.php" method="GET">');
+                                print('<form action="ticket/ticket_info.php" method="GET">');
                                 print('<button type="submit" class="button" type="button">More Info</button>');
                                 printf('<input type="hidden" name="id" value="%s">', $handler->data[$iterator]['id']);
                                 print('</form>');
@@ -141,7 +141,7 @@
                         <?php
                             for ($i = 0; $i < 3; $i++) {
                                 printf('<div class="popular-pannel brighten">');
-                                printf('<a href="#infoIDparty2019"><img class="popular-image" alt="image" src="images/crowd.jpg"></a>');
+                                printf('<a href="#infoIDparty2019"><img class="popular-image" alt="image" src="../images/crowd.jpg"></a>');
                                 printf('<p class="popularP">Party 2019</p>');
                                 printf('</div>');
                             }
@@ -174,7 +174,7 @@
                                         break;
                                     }
 
-                                    printf('<div class="ticket-pannel" style="background-image: url(images/%s.jpg);">', $handler->data[$iterator]['id']);
+                                    printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
                                     print('<i class="fa fa-tag discountIcon">30%</i>');
                                     print('<div class="ticket-text">');
                                     printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);

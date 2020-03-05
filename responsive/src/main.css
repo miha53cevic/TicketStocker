@@ -70,7 +70,7 @@ hr {
 }
 
 .header-background {
-    background-image: url("images/crowd.jpg");
+    background-image: url("../images/crowd.jpg");
     background-size: cover;
 }
 
@@ -257,7 +257,7 @@ hr {
     visibility: hidden;
     transition: width 0.5s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-image: url('images/background-light-dark.png');
+    background-image: url('../images/background-light-dark.png');
     background-size: contain;
     right: 0;
 }

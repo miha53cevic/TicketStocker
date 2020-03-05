@@ -4,7 +4,7 @@
     if (!empty($_GET)) {
         $name = $_GET["change_ticket_name"];
 
-        require_once 'includes/SqlHandler.php';
+        require_once '../includes/SqlHandler.php';
         
         $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
         $handler->querry("SELECT id FROM ticket WHERE ticket.name = '$name'", true);
@@ -47,7 +47,7 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
     <title> TicketStockerAdmin </title>
 </head>
 
@@ -59,8 +59,8 @@
         <a name="top"></a>
 
         <header class="header bg-sec-colour">
-            <h1 class="header-title"> <a href="index.php" class="header-title">TicketStocker - Admin</a> </h1>
-            <a class="header-item" href="login.php">Logout</a>
+            <h1 class="header-title"> <a href="../index.php" class="header-title">TicketStocker - Admin</a> </h1>
+            <a class="header-item" href="../login.php">Logout</a>
         </header>
 
         <br><br><br><br><br>
