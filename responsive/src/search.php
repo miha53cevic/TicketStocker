@@ -4,20 +4,24 @@
 
     $exists;
 
-    if (!empty($_GET) && !isset($_GET["results"]) && $_GET["search_query"] != '') {
-        $name = $_GET["search_query"];
+    if (!empty($_GET) && isset($_GET['search_query']) && $_GET["search_query"] != '') {
+        $name = $_GET['search_query'];
 
+    } else if (!empty($_GET) && isset($_GET['results'])) {
+        $name = $_GET['results'];
+    }
+
+    if (isset($name)) {
         $handler = createSqlHandler();
-        $handler->querry("SELECT id, name FROM ticket WHERE ticket.name LIKE '%$name%'", true);
-
-        // Check if the ticket data exists
-        if (sql_data_exists($handler)) {
-            $exists = true;
-        } else {
-            $exists = false;
-            header('Location: search.php?results=false');
-        }
-    } 
+        $handler->querry("SELECT id, name, date FROM ticket WHERE ticket.name LIKE '%$name%'", true);
+    }
+    
+    // Check if the ticket data exists
+    if (isset($name) && sql_data_exists($handler)) {
+        $exists = true;
+    } else {
+        $exists = false;
+    }
 
 ?>
 
@@ -52,28 +56,6 @@
                         <button class="button search-button align-self-center" id="searchButton"><i
                                 class="fa fa-search"></i></button>
                     </form>
-
-                        <?php
-                            if (isset($exists) && $exists) {
-                                printf('<div class="searching-pannel col shadow" style="bottom: -%spx;">', count($handler->data) * 75 + 40);
-
-                                for ($i = 0; $i < 4; $i++) {
-                                    if ($i >= count($handler->data)) {
-                                        break;
-                                    }
-    
-                                    printf('<a href="ticket/ticket_info.php?id=%s">', $handler->data[$i]['id']);
-                                    print('<div class="search-result row">');
-                                    printf('<img src="../images/%s.jpg">', $handler->data[$i]['id']);
-                                    printf('<p>%s</p>', $handler->data[$i]['name']);
-                                    print('</div>');
-                                    print('</a>');
-                                }
-
-                                print('<a href="search.php" class="button border0 border-radius0">More</a>');
-                                print('</div>');
-                            } 
-                        ?>
                 </div>
                 
                 <!-- Dodati Logout, i dobrodašo Username -->
@@ -82,54 +64,31 @@
             </header>
 
 
-        <div class="container transparent">
+        <div class="container transparent" style='width: 600px'>
             <div class="container w100">
                 <div class="content">
                     <h1 class="hHeader textLeft"> Search results </h1>
 
                     <?php
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
-                        printf("");
+                        if (isset($exists) && $exists) {
+                            foreach ($handler->data as $row) {
+                                printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $row['id']);
+                                printf('<div class="ticket-text">');
+                                printf('<p class="ticket-p">%s</p>', $row['name']);
+                                printf('<p class="ticket-p">%s</p>', date_format(date_create($row['date']), 'd.m.Y'));
+                                printf('</div>');
+                                printf('<div class="ticket-button-area">');
+                                print('<form action="ticket/ticket_info.php" method="GET">');
+                                print('<button type="submit" class="button" type="button">More Info</button>');
+                                printf('<input type="hidden" name="id" value="%s">', $row['id']);
+                                print('</form>');
+                                printf('</div>');
+                                printf('</div>');
+                            }
+                        }
+
                     ?>
-
-                    <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
-                        <div class="ticket-text">
-                            <p class="ticket-p">Cinestar Star Wars IX</p>
-                            <p class="ticket-p">26.12.2019.</p>
-                        </div>
-                        <div class="ticket-button-area">
-                            <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
-                        </div>
-                    </div>
-                    <div class="ticket-pannel" style="background-image: url('images/star_wars3.jpg');">
-                        <div class="ticket-text">
-                            <p class="ticket-p">Cinestar Star Wars III</p>
-                            <p class="ticket-p">26.5.2001.</p>
-                        </div>
-                        <div class="ticket-button-area">
-                            <a href="#infoIDStarWarsIII" class="button" type="button">More Info</a>
-                        </div>
-                    </div>
-                    <div class="ticket-pannel" style="background-image: url('images/star_wars.jpg');">
-                        <div class="ticket-text">
-                            <p class="ticket-p">Cinestar Star Wars IX</p>
-                            <p class="ticket-p">26.12.2019.</p>
-                        </div>
-                        <div class="ticket-button-area">
-                            <a href="#infoIDStarWarsXI" class="button" type="button">More Info</a>
-                        </div>
-                    </div>
-
+                    
                 </div> <!-- Content -->
             </div> <!-- New container -->
 

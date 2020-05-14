@@ -14,7 +14,7 @@
             $exists = true;
         } else {
             $exists = false;
-            header('Location: search.php?results=false');
+            header("Location: search.php?results={$_GET['search_query']}");
         }
     }
 ?>
@@ -76,7 +76,7 @@
                                     print('</a>');
                                 }
 
-                                print('<a href="search.php" class="button border0 border-radius0">More</a>');
+                                printf('<a href="search.php?results=%s" class="button border0 border-radius0">More</a>', $_GET['search_query']);
                                 print('</div>');
                             } 
                         ?>
@@ -182,7 +182,7 @@
                                     printf('<p class="ticket-p">%s</p>', date_format(date_create($handler->data[$iterator]['date']), 'd.m.Y'));
                                     print('</div>');
                                     print('<div class="ticket-button-area">');
-                                    print('<form action="ticket_info.php" method="GET">');
+                                    print('<form action="ticket/ticket_info.php" method="GET">');
                                     print('<button type="submit" class="button" type="button">More Info</button>');
                                     printf('<input type="hidden" name="id" value="%s">', $handler->data[$iterator]['id']);
                                     print('</form>');

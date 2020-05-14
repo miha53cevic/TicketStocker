@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2020 at 10:26 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: May 14, 2020 at 02:49 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,13 +38,12 @@ CREATE TABLE `seats` (
 --
 
 INSERT INTO `seats` (`id`, `row`, `col`) VALUES
-(162, 20, 20),
-(163, 4, 8),
-(164, 51, 98),
-(165, 41, 85),
-(166, 4, 8),
-(167, 165, 195),
-(168, 4, 5);
+(171, 10, 5),
+(172, 5, 1),
+(173, 4, 2),
+(174, 2, 5),
+(175, 546, 984),
+(176, 954, 45);
 
 -- --------------------------------------------------------
 
@@ -77,13 +75,12 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `name`, `date`, `price`) VALUES
-(162, 'Highschool DxD', '2019-12-29', 99),
-(163, 'Star Wars III', '2019-12-11', 3),
-(164, 'Star Wars The Last Jedi', '2019-12-12', 516),
-(165, 'Party 2019', '2019-12-27', 516),
-(166, 'Mentalist', '2019-12-23', 4),
-(167, 'Emoji angry', '0000-00-00', 3),
-(168, 'Anime Movie', '2020-01-18', 4);
+(171, 'Highschool DxD', '2020-05-23', 99),
+(172, 'Demon Slayer', '2020-05-22', 11),
+(173, 'Star Wars', '2020-05-24', 4616),
+(174, 'Star Wars 3', '2020-05-20', 59456),
+(175, 'Emoji', '2020-05-30', 646),
+(176, 'Party', '2020-05-13', 74);
 
 -- --------------------------------------------------------
 
@@ -101,13 +98,12 @@ CREATE TABLE `ticket_num` (
 --
 
 INSERT INTO `ticket_num` (`id`, `ticket_num`) VALUES
-(162, 1000),
-(163, 616),
-(164, 516),
-(165, 77498),
-(166, 1665),
-(167, 7156),
-(168, 9000);
+(171, 50000),
+(172, 69),
+(173, 646),
+(174, 846546),
+(175, 98464),
+(176, 8798798);
 
 -- --------------------------------------------------------
 
@@ -127,13 +123,12 @@ CREATE TABLE `times` (
 --
 
 INSERT INTO `times` (`id`, `time1`, `time2`, `time3`) VALUES
-(162, '12:00:00', '15:00:00', '19:00:00'),
-(163, '05:02:00', '06:05:00', '07:05:00'),
-(164, '05:02:00', '09:00:00', '04:51:00'),
-(165, '05:03:00', '08:05:00', '23:06:00'),
-(166, '05:03:00', '08:02:00', '01:00:00'),
-(167, '05:03:00', '20:05:00', '23:05:00'),
-(168, '05:01:00', '05:06:00', '05:06:00');
+(171, '09:00:00', '11:00:00', '13:00:00'),
+(172, '05:00:00', '07:00:00', '08:00:00'),
+(173, '00:00:00', '05:00:00', '09:00:00'),
+(174, '09:00:00', '15:00:00', '20:00:00'),
+(175, '09:00:00', '07:03:00', '09:05:00'),
+(176, '01:08:00', '07:04:00', '08:05:00');
 
 -- --------------------------------------------------------
 
@@ -153,9 +148,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `password`, `type`) VALUES
-(6, 'witherboy13', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'user'),
-(7, 'miha53cevic', 'c23086c8b86354645ada968666fddc8351db2de0', 'admin'),
-(8, 'uwu', '8a7b91cee1b3fd5aafd5838a2867dfedcd92f227', 'user');
+(9, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin'),
+(10, 'miha', '2daabc8f18fb7e2acf26b2ce498cce047dcfc6a8', 'user'),
+(11, 'user', '12dea96fec20593566ab75692c9949596833adc9', 'user');
 
 --
 -- Indexes for dumped tables
@@ -205,13 +200,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
