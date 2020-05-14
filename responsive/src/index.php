@@ -1,19 +1,20 @@
 <?php
+    require_once 'includes/utils.php';
+
     $exists;
 
     if (!empty($_GET) && $_GET["search_query"] != '') {
         $name = $_GET["search_query"];
 
-        require_once 'includes/SqlHandler.php';
-        
-        $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
+        $handler = createSqlHandler();
         $handler->querry("SELECT id, name FROM ticket WHERE ticket.name LIKE '%$name%'", true);
 
         // Check if the ticket data exists
-        if (count($handler->data)) {
+        if (sql_data_exists($handler)) {
             $exists = true;
         } else {
             $exists = false;
+            header('Location: search.php?results=false');
         }
     }
 ?>
@@ -75,12 +76,13 @@
                                     print('</a>');
                                 }
 
-                                print('<a href="search.html" class="button border0 border-radius0">More</a>');
+                                print('<a href="search.php" class="button border0 border-radius0">More</a>');
                                 print('</div>');
-                            }
+                            } 
                         ?>
                 </div>
-
+                
+                <!-- Dodati Logout, i dobrodašo Username -->
                 <a class="header-item" href="login.php">Login</a>
                 <a class="header-item" href="signup.php">SignUp</a>
                 <i class="fa fa-bars fa-lg header-item" id="navButton"></i>
@@ -104,27 +106,29 @@
 
                         //$date = date_format(date_create($_POST['ticket_date']), 'd.m.Y');
                         // Create the newly added tickets
-                        $iterator = 0;
-                        for ($i = 0; $i < 3; $i++) {
-                            print('<div class="row">');
-                            for ($j = 0; $j < 2; $j++) {
-                                printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
-                                print('<div class="ticket-text">');
-                                printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);
-                                printf('<p class="ticket-p">%s</p>', date_format(date_create($handler->data[$iterator]['date']), 'd.m.Y'));
-                                print('</div>');
-                                print('<div class="ticket-button-area">');
-                                print('<form action="ticket/ticket_info.php" method="GET">');
-                                print('<button type="submit" class="button" type="button">More Info</button>');
-                                printf('<input type="hidden" name="id" value="%s">', $handler->data[$iterator]['id']);
-                                print('</form>');
-                                print('</div>');
-                                print('</div>');
+                        if (sql_data_exists($handler)) {
+                            $iterator = 0;
+                            for ($i = 0; $i < 3; $i++) {
+                                print('<div class="row">');
+                                for ($j = 0; $j < 2; $j++) {
+                                    printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
+                                    print('<div class="ticket-text">');
+                                    printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);
+                                    printf('<p class="ticket-p">%s</p>', date_format(date_create($handler->data[$iterator]['date']), 'd.m.Y'));
+                                    print('</div>');
+                                    print('<div class="ticket-button-area">');
+                                    print('<form action="ticket/ticket_info.php" method="GET">');
+                                    print('<button type="submit" class="button" type="button">More Info</button>');
+                                    printf('<input type="hidden" name="id" value="%s">', $handler->data[$iterator]['id']);
+                                    print('</form>');
+                                    print('</div>');
+                                    print('</div>');
 
-                                $iterator++;
+                                    $iterator++;
+                                }
+                                print('</div>');
                             }
-                            print('</div>');
-                        }
+                        } 
                     ?>
 
                 </div> <!-- Content -->
@@ -159,10 +163,7 @@
                     <h1 class="hHeader textLeft"> On sale </h1>
 
                     <?php
-                            require_once 'includes/SqlHandler.php';
-        
-                            $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
-                            $handler->querry("SELECT * FROM `ticket` WHERE CURRENT_DATE - date <= 7", true);
+                            $handler->querry("SELECT * FROM `ticket` WHERE (ticket.date - CURRENT_DATE) <= 7 AND (ticket.date - CURRENT_DATE) >= 0", true);
                             
                             $iterator = 0;
                             for ($i = 0; $i < (count($handler->data)) / 2; $i++) {

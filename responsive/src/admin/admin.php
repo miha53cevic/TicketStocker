@@ -4,21 +4,21 @@
     if (!empty($_GET)) {
         $name = $_GET["change_ticket_name"];
 
-        require_once '../includes/SqlHandler.php';
+        require_once '../includes/utils.php';
         
-        $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
+        $handler = createSqlHandler();
         $handler->querry("SELECT id FROM ticket WHERE ticket.name = '$name'", true);
 
         $id;
 
         // Check if the ticket exists
-        if (count($handler->data)) {
+        if (sql_data_exists($handler)) {
             $id = $handler->data[0]['id'];
             $handler->querry("SELECT * FROM ticket, seats, ticket_num, times WHERE ticket.id = '$id' AND seats.id = '$id' AND ticket_num.id = '$id' AND times.id = '$id'", true);
         }
 
         // Check if the ticket data exists
-        if (count($handler->data)) {
+        if (sql_data_exists($handler)) {
             $exists = true;
 
             // Get all the info about the ticket
@@ -70,19 +70,19 @@
             <div class="container bg-sec-colour" style="color: white;">
                 <div class="content paddingL">
 
-                    <form action='server_requests/add_ticket.php' method='POST' enctype='multipart/form-data'>
+                    <form action='../server_requests/add_ticket.php' method='POST' enctype='multipart/form-data'>
                         <h1 style="color: white;">Add ticket</h1>
                         <p class="pHeader">Name</p>
-                        <input class="text-field" type="text" name='ticket_name'><br><br>
+                        <input class="text-field" type="text" name='ticket_name' required><br><br>
                         <p class="pHeader">Date</p>
-                        <input class="text-field" type="date" name='ticket_date'><br><br>
+                        <input class="text-field" type="date" name='ticket_date' required><br><br>
                         <p class="pHeader">Price</p>
                         <input class="text-field w50" type="number" name='ticket_price'>
                         <br><br>
                         <p class="pHeader">Number of tickets</p>
-                        <input class="text-field w50" type="text" name='ticket_num'><br><br>
+                        <input class="text-field w50" type="text" name='ticket_num' required><br><br>
                         <p class="pHeader">Image (only jpeg)</p>
-                        <input type="file" accept="image/jpeg" name='ticket_img' id='ticket_img'><br><br>
+                        <input type="file" accept="image/jpeg" name='ticket_img' id='ticket_img' required><br><br>
                         <p class="pHeader">Times</p>
                         <div class="row justify-content-center">
                             <input type="time" name='ticket_time1'>
@@ -91,9 +91,9 @@
                         </div><br><br>
                         <p class="pHeader">Number of seats</p>
                         <p class="pText">Rows</p>
-                        <input type="number" class="text-field" style="width: 4rem;" name='ticket_row'>
+                        <input type="number" class="text-field" style="width: 4rem;" name='ticket_row' required>
                         <p class="pText">Columns</p>
-                        <input type="number" class="text-field" style="width: 4rem;" name='ticket_col'>
+                        <input type="number" class="text-field" style="width: 4rem;" name='ticket_col' required>
                         <br><br><br>
                         <input type='submit' class="button w100" value='Add ticket'></input>
                 </div>
@@ -113,7 +113,7 @@
                     <?php
                         // Write: searched up ticket info or No ticket exists with that name
                         if (isset($exists) && $exists) {
-                            printf('<form action="server_requests/change_ticket.php" method="POST" enctype="multipart/form-data">');
+                            printf('<form action="../server_requests/change_ticket.php" method="POST" enctype="multipart/form-data">');
                             printf('<p class="pHeader">Name</p>');
                             printf('<input class="text-field" type="text" name="ticket_name" value="%s"><br><br>', $name);
                             printf('<p class="pHeader">Date</p>');

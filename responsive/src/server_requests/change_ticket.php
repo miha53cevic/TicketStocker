@@ -46,15 +46,15 @@
     $handler->close();
 
     // Overwrite the image
-    if (isset($_POST['ticket_img'])) {
-
+    if (isset($_FILES['ticket_img'])) {
+        echo 'Overwrite image!';
         $info = pathinfo($_FILES["ticket_img"]['name']);
         $ext = $info['extension']; // get the extension of the file
         $newname = "$id.$ext"; 
-        $target = '../images/'.$newname;
+        $target = '../../images/'.$newname;
         move_uploaded_file( $_FILES["ticket_img"]['tmp_name'], $target);
     }
 
     // Redirect back to main site
-    header('Location: ../admin.php');
+    header('Location: ../admin/admin.php');
 ?>

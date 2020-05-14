@@ -36,9 +36,9 @@
     $ext = $info['extension']; // get the extension of the file
     $newname = "$id.$ext"; 
 
-    $target = '../images/'.$newname;
+    $target = '../../images/'.$newname;
     move_uploaded_file( $_FILES["ticket_img"]['tmp_name'], $target);
 
     // Redirect back to main site
-    header('Location: ../admin.php');
+    header('Location: ../admin/admin.php');
 ?>

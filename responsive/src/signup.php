@@ -6,8 +6,8 @@
         // Hash the password
         $pass = sha1($_POST['password']);
 
-        require_once 'includes/SqlHandler.php';
-        $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
+        require_once 'includes/utils.php';
+        $handler = createSqlHandler();
         
         // Add user
         $querry = "INSERT INTO users(name, password, type) VALUES ('$name', '$pass', 'user')";

@@ -11,5 +11,5 @@
     $handler->close();
 
     // Redirect back to main site
-    header('Location: ../admin.php');
+    header('Location: ../index.php');
 ?>

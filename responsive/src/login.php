@@ -7,14 +7,14 @@
         // Hash the password
         $pass = sha1($_POST['password']);
 
-        require_once 'includes/SqlHandler.php';
-        $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
+        require_once 'includes/utils.php';
+        $handler = createSqlHandler();
         
         // Check if user exists
         $querry = "SELECT type FROM `users` WHERE name = '$name' AND password = '$pass'";
         $handler->querry($querry, true);
         
-        if (count($handler->data)) {
+        if (sql_data_exists($handler)) {
             $exists = true;
 
             //session_start();
@@ -23,6 +23,8 @@
             // Check if an admin has logged on
             if ($handler->data[0]['type'] == 'admin') {
                 header('Location: admin/admin.php');
+            } else {
+                header('Location: index.php');
             }
 
         } else {
@@ -62,6 +64,7 @@
                 <?php
                     if (isset($exists) && !$exists) {
                         print('<p style="color: red" class="textCenter">Incorrect Login</p>');
+                        print('<p class="textCenter">New user? Try <a href="signup.php">signing up</a> </p>');
                     }
                 ?>
 
