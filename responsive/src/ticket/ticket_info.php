@@ -53,8 +53,8 @@ if (!sql_data_exists($handler)) {
                     print('<a class="header-item" href="../logout.php">Logout</a>');
                     
                 } else {
-                    print('<a class="header-item" href="login.php">Login</a>');
-                    print('<a class="header-item" href="signup.php">SignUp</a>');
+                    print('<a class="header-item" href="../login.php">Login</a>');
+                    print('<a class="header-item" href="../signup.php">SignUp</a>');
                     print('<i class="fa fa-bars fa-lg header-item" id="navButton"></i>');
                 }
 
