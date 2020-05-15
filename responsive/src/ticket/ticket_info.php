@@ -4,7 +4,7 @@ $id = $_GET['id'] | 0;
 
 require_once '../includes/utils.php';
 $handler = createSqlHandler();
-$handler->querry("SELECT ticket.name, ticket.price, times.time1, times.time2, times.time3, seats.row, seats.col FROM ticket, times, seats WHERE $id = ticket.id AND ticket.id = times.id AND ticket.id = seats.id", true);
+$handler->querry("SELECT ticket.name, ticket.price, times.time1, times.time2, times.time3, seats.row, seats.col, discounts.discount FROM ticket, times, seats, discounts WHERE $id = ticket.id AND ticket.id = times.id AND ticket.id = seats.id AND discounts.id = ticket.id", true);
 
 // Check for case if the ticket by requested ID doesn't exist
 if (!sql_data_exists($handler)) {
@@ -97,8 +97,17 @@ if (!sql_data_exists($handler)) {
                                     printf('<input class="text-field" min="1" max="%s" style="width: 3.5rem;" type="number" value="1" id="seat_col">', $handler->data[0]['col']);
                                     printf('</div><br>');
                                 }
+                                
+                                $discount = (int)$handler->data[0]['discount'];
+                                $init_price = $handler->data[0]['price'];
+                                if ($discount != 0) {
+                                    $discount = 100 - $discount;
+                                    $discount /= 100;
+                                    printf('<p class="pHeader">Price: <span style="font-family: arial;">%s€ <span style="text-decoration: line-through; font-family: arial;">(%s€)</span></span> </p>', $init_price * $discount, $init_price);
 
-                                printf('<p class="pHeader">Price: <span style="font-family: arial;">%s€</span> </p>', $handler->data[0]['price']);
+                                } else {
+                                    printf('<p class="pHeader">Price: <span style="font-family: arial;">%s€</span> </p>', $handler->data[0]['price']);
+                                }
                             
                             ?>
                             <br>

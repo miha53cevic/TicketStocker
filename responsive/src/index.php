@@ -106,11 +106,16 @@
 
                         //$date = date_format(date_create($_POST['ticket_date']), 'd.m.Y');
                         // Create the newly added tickets
-                        if (sql_data_exists($handler)) {
-                            $iterator = 0;
-                            for ($i = 0; $i < 3; $i++) {
+                        $iterator = 0;
+                            for ($i = 0; $i < (count($handler->data)) / 2; $i++) {
                                 print('<div class="row">');
                                 for ($j = 0; $j < 2; $j++) {
+
+                                    // Check if there is an odd number of items
+                                    if ($iterator >= count($handler->data)) {
+                                        break;
+                                    }
+
                                     printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
                                     print('<div class="ticket-text">');
                                     printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);
@@ -128,7 +133,6 @@
                                 }
                                 print('</div>');
                             }
-                        } 
                     ?>
 
                 </div> <!-- Content -->
@@ -163,7 +167,7 @@
                     <h1 class="hHeader textLeft"> On sale </h1>
 
                     <?php
-                            $handler->querry("SELECT * FROM `ticket` WHERE (ticket.date - CURRENT_DATE) <= 7 AND (ticket.date - CURRENT_DATE) >= 0", true);
+                            $handler->querry("SELECT * FROM ticket, discounts WHERE ticket.id = discounts.id && discounts.discount > 0", true);
                             
                             $iterator = 0;
                             for ($i = 0; $i < (count($handler->data)) / 2; $i++) {
@@ -176,7 +180,7 @@
                                     }
 
                                     printf('<div class="ticket-pannel" style="background-image: url(../images/%s.jpg);">', $handler->data[$iterator]['id']);
-                                    print('<i class="fa fa-tag discountIcon">30%</i>');
+                                    printf('<i class="fa fa-tag discountIcon">%s%%</i>', $handler->data[$iterator]['discount']);
                                     print('<div class="ticket-text">');
                                     printf('<p class="ticket-p">%s</p>', $handler->data[$iterator]['name']);
                                     printf('<p class="ticket-p">%s</p>', date_format(date_create($handler->data[$iterator]['date']), 'd.m.Y'));
