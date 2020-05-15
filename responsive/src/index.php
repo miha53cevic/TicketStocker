@@ -165,12 +165,20 @@
                     <div class="row">
 
                         <?php
-                            for ($i = 0; $i < 3; $i++) {
-                                printf('<div class="popular-pannel brighten">');
-                                printf('<a href="#infoIDparty2019"><img class="popular-image" alt="image" src="../images/crowd.jpg"></a>');
-                                printf('<p class="popularP">Party 2019</p>');
-                                printf('</div>');
+
+                            $handler->querry("SELECT ticket.name, ticket.id FROM ticket, sold_seats WHERE ticket.id = sold_seats.id GROUP BY ticket.id ORDER BY COUNT(ticket.id) DESC LIMIT 0,3", true);
+                            if (sql_data_exists($handler)) {
+                                for ($i = 0; $i < 3; $i++) {
+                                    if ($i >= count($handler->data)) {
+                                        break;
+                                    }
+                                    printf('<div class="popular-pannel brighten">');
+                                    printf('<a href="%s"><img class="popular-image" alt="image" src="../images/%s.jpg"></a>', 'ticket/ticket_info.php?id='.$handler->data[$i]['id'], $handler->data[$i]['id']);
+                                    printf('<p class="popularP">%s</p>', $handler->data[$i]['name']);
+                                    printf('</div>');
+                                }
                             }
+
                         ?>
 
                     </div> <!-- Row -->
