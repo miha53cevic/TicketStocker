@@ -4,6 +4,15 @@
 - Client: https://miha53cevic.github.io/TicketStocker/static/client.html
 - Admin: https://miha53cevic.github.io/TicketStocker/static/admin.html
 
+## Baza login
+- Admin Account
+    - username: admin
+    - password: admin
+
+- Default user account
+    - username: user
+    - password: user
+
 ## Feature list
 ### User Login
 - Klik na TicketStocker vraća na index.php
