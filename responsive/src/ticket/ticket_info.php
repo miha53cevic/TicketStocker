@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $id = $_GET['id'] | 0;
 
 require_once '../includes/utils.php';
@@ -38,8 +40,22 @@ if (!sql_data_exists($handler)) {
         <header class="header bg-sec-colour">
             <h1 class="header-title"> <a href="../index.php" class="header-title">TicketStocker</a> </h1>
 
-            <a class="header-item" href="../login.php">Login</a>
-            <a class="header-item" href="../signup.php">SignUp</a>
+            <!-- Dodati Logout, i dobrodašo Username -->
+            <?php
+
+                if (isset($_SESSION['user'])) {
+                    printf('<a class="header-greet">Welcome, %s</a>', $_SESSION['user']);
+                    print('<a class="header-item" href="../logout.php">Logout</a>');
+                    
+                } else {
+                    print('<a class="header-item" href="login.php">Login</a>');
+                    print('<a class="header-item" href="signup.php">SignUp</a>');
+                    print('<i class="fa fa-bars fa-lg header-item" id="navButton"></i>');
+                }
+
+            
+            ?>
+
         </header>
 
         <div class="container transparent align-items-center">

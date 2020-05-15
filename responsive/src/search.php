@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     require_once 'includes/utils.php';
 
     $exists;
@@ -59,8 +61,19 @@
                 </div>
                 
                 <!-- Dodati Logout, i dobrodašo Username -->
-                <a class="header-item" href="login.php">Login</a>
-                <a class="header-item" href="signup.php">SignUp</a>
+                <?php
+
+                    if (isset($_SESSION['user'])) {
+                       printf('<a class="header-greet">Welcome, %s</a>', $_SESSION['user']);
+                       print('<a class="header-item" href="logout.php">Logout</a>');
+                        
+                    } else {
+                        print('<a class="header-item" href="login.php">Login</a>');
+                        print('<a class="header-item" href="signup.php">SignUp</a>');
+                        print('<i class="fa fa-bars fa-lg header-item" id="navButton"></i>');
+                    }
+
+                ?>
             </header>
 
 

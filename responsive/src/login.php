@@ -17,8 +17,9 @@
         if (sql_data_exists($handler)) {
             $exists = true;
 
-            //session_start();
-            //$_SESSION['user'] = $name;
+            session_start();
+            $_SESSION['user'] = $name;
+            $_SESSION['type'] = $handler->data[0]['type'];
 
             // Check if an admin has logged on
             if ($handler->data[0]['type'] == 'admin') {

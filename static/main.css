@@ -69,6 +69,14 @@ hr {
     cursor: pointer;
 }
 
+.header-greet {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    align-self: center;
+    font-size: x-large;
+}
+
 .header-background {
     background-image: url("images/crowd.jpg");
     background-size: cover;
