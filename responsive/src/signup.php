@@ -13,6 +13,8 @@
         $querry = "INSERT INTO users(name, password, type) VALUES ('$name', '$pass', 'user')";
         $handler->querry($querry, false);
 
+        $handler->close();
+
         header('Location: login.php');
     }
 ?>

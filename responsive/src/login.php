@@ -30,6 +30,8 @@
         } else {
             $exists = false;
         }
+
+        $handler->close();
     }
 ?>
 

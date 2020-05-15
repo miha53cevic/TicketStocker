@@ -10,4 +10,4 @@ function sql_data_exists($handler) {
     return count($handler->data) > 0;
 }
 
-?>                
+?>

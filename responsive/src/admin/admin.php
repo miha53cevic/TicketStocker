@@ -14,7 +14,7 @@
         // Check if the ticket exists
         if (sql_data_exists($handler)) {
             $id = $handler->data[0]['id'];
-            $handler->querry("SELECT * FROM ticket, seats, ticket_num, times WHERE ticket.id = '$id' AND seats.id = '$id' AND ticket_num.id = '$id' AND times.id = '$id'", true);
+            $handler->querry("SELECT * FROM ticket, seats, ticket_num, times, discounts WHERE ticket.id = '$id' AND seats.id = '$id' AND ticket_num.id = '$id' AND times.id = '$id' AND discounts.id = '$id'", true);
         }
 
         // Check if the ticket data exists
@@ -30,6 +30,7 @@
             $ticket_time3 = $handler->data[0]['time3'];
             $ticket_row = $handler->data[0]['row'];
             $ticket_col = $handler->data[0]['col'];
+            $discount = $handler->data[0]['discount'];
 
         } else {
             $exists = false;
@@ -94,6 +95,8 @@
                         <input type="number" class="text-field" style="width: 4rem;" name='ticket_row' required>
                         <p class="pText">Columns</p>
                         <input type="number" class="text-field" style="width: 4rem;" name='ticket_col' required>
+                        <p class="pText">Discount</p>
+                        <input type="number" class="text-field" max="100" min="0" value="0" style="width: 4rem;" name='discount' required>
                         <br><br><br>
                         <input type='submit' class="button w100" value='Add ticket'></input>
                 </div>
@@ -136,6 +139,8 @@
                             printf('<input type="number" class="text-field" style="width: 4rem;" name="ticket_row" value="%s">', $ticket_row);
                             printf('<p class="pText">Columns</p>');
                             printf('<input type="number" class="text-field" style="width: 4rem;" name="ticket_col" value="%s">', $ticket_col);
+                            printf('<p class="pText">Discount</p>');
+                            printf('<input type="number" class="text-field" max="100" min="0" value="%s" style="width: 4rem;" name="discount">', $discount);
                             printf('<br><br>');
                             printf('<p class="pHeader">Remove ticket</p>');
                             printf('<input type="checkbox" name="ticket_remove">');
@@ -155,7 +160,8 @@
         <br><br><br><br><br>
 
         <?php
-            include 'includes/footer.php'
+            include 'includes/footer.php';
+            $handler->close();
         ?>
 
     </main>

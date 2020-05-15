@@ -13,6 +13,7 @@
     $ticket_row = $_POST['ticket_row'];
     $ticket_col = $_POST['ticket_col'];
     $ticket_remove = isset($_POST['ticket_remove']);
+    $discount = $_POST['discount'];
 
     require_once '../includes/SqlHandler.php';
     $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
@@ -31,6 +32,9 @@
 
         $querry4 = "UPDATE seats SET row = '$ticket_row', col = '$ticket_col' WHERE seats.id = '$id'";
         $handler->querry($querry4, false);
+
+        $querry5 = "UPDATE discounts SET discount = '$discount' WHERE discounts.id = '$id'";
+        $handler->querry($querry5, false);
     } else {
         // Remove ticket
         $querry = "DELETE FROM ticket WHERE id = $id;";
@@ -38,6 +42,7 @@
         $querry .= "DELETE FROM times WHERE id = $id;";
         $querry .= "DELETE FROM seats WHERE id = $id;";
         $querry .= "DELETE FROM sold_seats WHERE id = $id";
+        $querry .= "DELETE FROM discounts WHERE id= $id";
 
         $handler->querryMulti($querry);
     }

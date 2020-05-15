@@ -11,6 +11,7 @@
     $ticket_time3 = $_POST['ticket_time3'];
     $ticket_row = $_POST['ticket_row'];
     $ticket_col = $_POST['ticket_col'];
+    $discount = $_POST['discount'];
 
     require_once '../includes/SqlHandler.php';
     $handler = new SqlHandler('localhost', 'root', '', 'ticket_stocker');
@@ -28,6 +29,9 @@
 
     $querry4 = "INSERT INTO seats(id, row, col) VALUES ('$id', '$ticket_row', '$ticket_col')";
     $handler->querry($querry4, false);
+
+    $querry5 = "INSERT into discounts(id, discount) VALUES ('$id', '$discount')";
+    $handler->querry($querry5, false);
 
     $handler->close();
 

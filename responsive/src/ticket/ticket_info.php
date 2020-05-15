@@ -31,6 +31,7 @@ if (!sql_data_exists($handler)) {
 <body>
 
     <a href="#top" class="fa fa-arrow-up fa-lg top-icon button"></a>
+    <p style="display: none;" id='id'><?php echo "{$_GET['id']}" ?></p>
 
     <main class="main">
 
@@ -42,7 +43,8 @@ if (!sql_data_exists($handler)) {
         </header>
 
         <div class="container transparent align-items-center">
-            <div class="container w100 align-items-center ticket-pannel" style="background-image: url('../../images/<?php echo $_GET['id'] ?>.jpg');">
+            <div class="container w100 align-items-center ticket-pannel"
+                style="background-image: url('../../images/<?php echo $_GET['id'] ?>.jpg');">
                 <h1 class="hHeader text-outline"> <?php echo $handler->data[0]['name']; ?> </h1>
             </div>
             <div class="row">
@@ -51,7 +53,7 @@ if (!sql_data_exists($handler)) {
                         <div class="col" id="time-list">
                             <i class="pHeader">Available times</i>
                             <hr>
-                                <?php  
+                            <?php  
                                     
                                     $time1 = $handler->data[0]['time1'];
                                     $time2 = $handler->data[0]['time2'];
@@ -73,22 +75,21 @@ if (!sql_data_exists($handler)) {
                                     }
                                         
                                 ?>
-                                </div>
+                        </div>
 
-                        </div> <!-- Content -->
-                    </div> <!-- New container -->
+                    </div> <!-- Content -->
+                </div> <!-- New container -->
 
-                    <div class="container w100 align-items-center">
-                        <div class="content">
+                <div class="container w100 align-items-center">
+                    <div class="content">
                         <div class="col">
-                            <div id="canvasArea"></div><br>
                             <p class="pHeader">Time: <span id="time">none selected</span> </p>
                             <hr>
-                            
+
                             <?php 
                             
                                 if ($handler->data[0]['row'] != 0 && $handler->data[0]['col'] != 0) {
-                                    printf('<p class="pHeader">Seat: <span id="seat">1 row, 1 col</span> </p><br>');
+                                    printf('<p class="pHeader">Seat: <span id="seat">1 row, 1 col</span> </p><br><br><br>');
                                     printf('<div class="row justify-content-center">');
                                     printf('<p class="pHeader">Row:</p>');
                                     printf('<input class="text-field" min="1" max="%s" style="width: 3.5rem;" type="number" value="1" id="seat_row">', $handler->data[0]['row']);
@@ -96,14 +97,13 @@ if (!sql_data_exists($handler)) {
                                     printf('<input class="text-field" min="1" max="%s" style="width: 3.5rem;" type="number" value="1" id="seat_col">', $handler->data[0]['col']);
                                     printf('</div><br>');
                                 }
+
+                                printf('<p class="pHeader">Price: <span style="font-family: arial;">%s€</span> </p>', $handler->data[0]['price']);
                             
                             ?>
-
-                            <div class="row justify-content-center">
-                                <p class="pHeader">Amount:</p>
-                                <input class="text-field" min="1" max="5" style="width: 3.5rem;" type="number" value="1">
-                            </div><br>
-                            <button class="button">Buy</button>
+                            <br>
+                            <button class="button" id="buy">Buy</button>
+                            <h3 id='ticket_sold' style='color: red;'>Ticket already sold!</h3>
                         </div>
 
                     </div>
@@ -125,6 +125,7 @@ if (!sql_data_exists($handler)) {
 
         <?php 
             include '../includes/footer.php';
+            $handler->close();
         ?>
 
     </main>
@@ -132,26 +133,54 @@ if (!sql_data_exists($handler)) {
 </body>
 
 <script>
+$("#ticket_sold").hide();
 
-    // Setup time choosing
-    for (let i = 0; i < 3; i++) {
-        $("#time-list").on('click', 'p', function() {
-            $("#time").text($(this).text());
-        });
-    }
-
-    let seatRow = 1;
-    let seatCol = 1;
-    $("#seat_row").on('click', function() {
-        seatRow = $(this).val();
-        $("#seat").text(`${seatRow} row, ${seatCol} col`);
+// Setup time choosing
+for (let i = 0; i < 3; i++) {
+    $("#time-list").on('click', 'p', function() {
+        $("#time").text($(this).text());
+        $("#ticket_sold").hide();
     });
+}
 
-    $("#seat_col").on('click', function() {
-        seatCol = $(this).val();
-        $("#seat").text(`${seatRow} row, ${seatCol} col`);
+let seatRow = 1;
+let seatCol = 1;
+$("#seat_row").on('click', function() {
+    seatRow = parseInt($(this).val());
+    $("#seat").text(`${seatRow} row, ${seatCol} col`);
+    $("#ticket_sold").hide();
+});
+
+$("#seat_col").on('click', function() {
+    seatCol = parseInt($(this).val());
+    $("#seat").text(`${seatRow} row, ${seatCol} col`);
+    $("#ticket_sold").hide();
+});
+
+$("#buy").on('click', function() {
+    $.ajax({
+        type: 'GET',
+        url: '../server_requests/buy_ticket.php',
+        data: {
+            seatNum: (parseInt($("#seat_col").attr('max')) * (seatRow - 1)) + (seatCol - 1) + 1,
+            time: $("#time").html(),
+            id: $("#id").html()
+        },
+        success: function(result) {
+            result.replace(/\s/g,'');
+            console.log(result);
+            if (result == 'time_error') {
+                $('#time').text("Select a time!");
+            } else if (result == 'sold_error') {
+                $("#ticket_sold").text("Ticket already sold!");
+                $("#ticket_sold").show();
+            } else if (result == 'success') {
+                $("#ticket_sold").text("Ticket bought!");
+                $("#ticket_sold").show();
+            }
+        }
     });
-
+});
 </script>
 
 </html>

@@ -204,7 +204,8 @@
         <br><br><br><br><br><br><br><br><br><br>
 
         <?php
-            include 'includes/footer.php'
+            include 'includes/footer.php';
+            $handler->close();
         ?>
 
     </main>
