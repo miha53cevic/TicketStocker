@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 02:49 PM
+-- Generation Time: May 15, 2020 at 08:17 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `discounts`
+--
+
+CREATE TABLE `discounts` (
+  `id` int(11) NOT NULL,
+  `discount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `discounts`
+--
+
+INSERT INTO `discounts` (`id`, `discount`) VALUES
+(183, 0),
+(184, 0),
+(185, 0),
+(186, 0),
+(187, 0),
+(188, 20);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `seats`
 --
 
@@ -38,12 +61,12 @@ CREATE TABLE `seats` (
 --
 
 INSERT INTO `seats` (`id`, `row`, `col`) VALUES
-(171, 10, 5),
-(172, 5, 1),
-(173, 4, 2),
-(174, 2, 5),
-(175, 546, 984),
-(176, 954, 45);
+(183, 5, 10),
+(184, 20, 5),
+(185, 0, 0),
+(186, 0, 0),
+(187, 20, 30),
+(188, 30, 20);
 
 -- --------------------------------------------------------
 
@@ -52,10 +75,27 @@ INSERT INTO `seats` (`id`, `row`, `col`) VALUES
 --
 
 CREATE TABLE `sold_seats` (
+  `primary_key` int(11) NOT NULL,
   `id` int(11) NOT NULL,
   `seat_num` int(11) NOT NULL,
   `time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `sold_seats`
+--
+
+INSERT INTO `sold_seats` (`primary_key`, `id`, `seat_num`, `time`) VALUES
+(17, 188, 1, '05:00:00'),
+(18, 188, 2, '05:00:00'),
+(19, 185, -1, '16:00:00'),
+(20, 185, -1, '16:00:00'),
+(21, 188, 21, '05:00:00'),
+(22, 185, -1, '16:00:00'),
+(23, 185, -1, '16:00:00'),
+(24, 185, -1, '16:00:00'),
+(25, 185, -1, '19:00:00'),
+(26, 183, 1, '05:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,12 +115,12 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `name`, `date`, `price`) VALUES
-(171, 'Highschool DxD', '2020-05-23', 99),
-(172, 'Demon Slayer', '2020-05-22', 11),
-(173, 'Star Wars', '2020-05-24', 4616),
-(174, 'Star Wars 3', '2020-05-20', 59456),
-(175, 'Emoji', '2020-05-30', 646),
-(176, 'Party', '2020-05-13', 74);
+(183, 'Star Wars', '2020-05-24', 50),
+(184, 'Star Wars 3', '2020-05-17', 50),
+(185, 'Party', '2020-05-29', 90),
+(186, 'Emoji movie', '2020-05-24', 15),
+(187, 'Demon Slayer', '2020-05-30', 50),
+(188, 'Highschool DxD', '2020-05-27', 30);
 
 -- --------------------------------------------------------
 
@@ -98,12 +138,12 @@ CREATE TABLE `ticket_num` (
 --
 
 INSERT INTO `ticket_num` (`id`, `ticket_num`) VALUES
-(171, 50000),
-(172, 69),
-(173, 646),
-(174, 846546),
-(175, 98464),
-(176, 8798798);
+(183, 100),
+(184, 200),
+(185, 5000),
+(186, 2000),
+(187, 100),
+(188, 600);
 
 -- --------------------------------------------------------
 
@@ -123,12 +163,12 @@ CREATE TABLE `times` (
 --
 
 INSERT INTO `times` (`id`, `time1`, `time2`, `time3`) VALUES
-(171, '09:00:00', '11:00:00', '13:00:00'),
-(172, '05:00:00', '07:00:00', '08:00:00'),
-(173, '00:00:00', '05:00:00', '09:00:00'),
-(174, '09:00:00', '15:00:00', '20:00:00'),
-(175, '09:00:00', '07:03:00', '09:05:00'),
-(176, '01:08:00', '07:04:00', '08:05:00');
+(183, '05:00:00', '03:00:00', '16:00:00'),
+(184, '16:00:00', '19:00:00', '23:00:00'),
+(185, '16:00:00', '19:00:00', '00:00:00'),
+(186, '05:00:00', '12:00:00', '00:00:00'),
+(187, '16:00:00', '19:00:00', '23:00:00'),
+(188, '05:00:00', '15:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -150,11 +190,18 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `name`, `password`, `type`) VALUES
 (9, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin'),
 (10, 'miha', '2daabc8f18fb7e2acf26b2ce498cce047dcfc6a8', 'user'),
-(11, 'user', '12dea96fec20593566ab75692c9949596833adc9', 'user');
+(11, 'user', '12dea96fec20593566ab75692c9949596833adc9', 'user'),
+(12, 'stef', '9ffd23e5acda1e74de418e99cd3644ce8be6f808', 'user');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `discounts`
+--
+ALTER TABLE `discounts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `seats`
@@ -166,7 +213,7 @@ ALTER TABLE `seats`
 -- Indexes for table `sold_seats`
 --
 ALTER TABLE `sold_seats`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`primary_key`);
 
 --
 -- Indexes for table `ticket`
@@ -197,16 +244,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `sold_seats`
+--
+ALTER TABLE `sold_seats`
+  MODIFY `primary_key` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
