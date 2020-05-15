@@ -89,6 +89,11 @@
 
                     if (isset($_SESSION['user'])) {
                        printf('<a class="header-greet">Welcome, %s</a>', $_SESSION['user']);
+
+                        if ($_SESSION['type'] == 'admin') {
+                            print('<a class="header-item" href="admin/admin.php">AdminPage</a>');
+                        }
+
                        print('<a class="header-item" href="logout.php">Logout</a>');
                         
                     } else {

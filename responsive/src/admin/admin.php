@@ -63,6 +63,7 @@
 
         <header class="header bg-sec-colour">
             <h1 class="header-title"> <a href="../index.php" class="header-title">TicketStocker - Admin</a> </h1>
+            <a class="header-item" href="../index.php">Main page</a>
             <a class="header-item" href="../logout.php">Logout</a>
         </header>
 
